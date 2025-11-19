@@ -1,14 +1,20 @@
-function MyButton() {
+import './App.css';
+
+function Avatar() {
   return (
-    <button>I'm a button</button>
+    <img
+      className="avatar"
+      src="https://i.imgur.com/yXOvdOSs.jpg"
+      alt="Hedy Lamarr"
+    />
   );
 }
 
 export default function App() {
   return (
     <div>
-      <h1>Welcome to my nguyen app</h1>
-      <MyButton />
+      <h1>スタイルの追加</h1>
+      <Avatar />
     </div>
   );
 }
