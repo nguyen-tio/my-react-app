@@ -1,33 +1,28 @@
 import './App.css';
 
-const user = {
-  name: 'Hedy Lamarr',
-  imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
-  imageSize: 90,
-};
+function AdminPanel() {
+  return <div style={{ padding: '10px', background: '#e0f7fa' }}>Admin Panel</div>;
+}
 
-function Profile() {
-  return (
-    <>
-      <h1>{user.name}</h1>
-      <img
-        className="avatar"
-        src={user.imageUrl}
-        alt={'Photo of ' + user.name}
-        style={{
-          width: user.imageSize,
-          height: user.imageSize
-        }}
-      />
-    </>
-  );
+function LoginForm() {
+  return <div style={{ padding: '10px', background: '#ffe0b2' }}>Login Form</div>;
 }
 
 export default function App() {
+  const isLoggedIn = false; // ← ここをtrue/falseで切り替えて試す
+
+  let content;
+  if (isLoggedIn) {
+    content = <AdminPanel />;
+  } else {
+    content = <LoginForm />;
+  }
+
   return (
     <div>
-      <h1>データの表示</h1>
-      <Profile />
+      <h1>条件つきレンダー（if文）</h1>
+      <p>isLoggedIn = {isLoggedIn ? 'true' : 'false'}</p>
+      {content}
     </div>
   );
 }
