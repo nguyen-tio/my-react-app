@@ -1,18 +1,31 @@
 import './App.css';
 
-function AdminPanel() {
-  return <div style={{ padding: '10px', background: '#e0f7fa' }}>Admin Panel</div>;
+const products = [
+  { title: 'Cabbage', isFruit: false, id: 1 },
+  { title: 'Garlic', isFruit: false, id: 2 },
+  { title: 'Apple', isFruit: true, id: 3 },
+];
+
+function ShoppingList() {
+  const listItems = products.map(product =>
+    <li
+      key={product.id}
+      style={{
+        color: product.isFruit ? 'magenta' : 'darkgreen'
+      }}
+    >
+      {product.title}
+    </li>
+  );
+
+  return <ul>{listItems}</ul>;
 }
 
 export default function App() {
-  const isLoggedIn = false; // ← ここをtrue/falseで切り替えて試す
-
   return (
     <div>
-      <h1>条件つきレンダー（論理&&）</h1>
-      <p>isLoggedIn = {isLoggedIn ? 'true' : 'false'}</p>
-      {isLoggedIn && <AdminPanel />}
-      {!isLoggedIn && <p>ログインしていません</p>}
+      <h1>リストのレンダー</h1>
+      <ShoppingList />
     </div>
   );
 }
