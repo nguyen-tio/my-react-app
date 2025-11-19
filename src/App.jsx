@@ -1,31 +1,22 @@
 import './App.css';
 
-const products = [
-  { title: 'Cabbage', isFruit: false, id: 1 },
-  { title: 'Garlic', isFruit: false, id: 2 },
-  { title: 'Apple', isFruit: true, id: 3 },
-];
+function MyButton() {
+  function handleClick() {
+    alert('You clicked me!');
+  }
 
-function ShoppingList() {
-  const listItems = products.map(product =>
-    <li
-      key={product.id}
-      style={{
-        color: product.isFruit ? 'magenta' : 'darkgreen'
-      }}
-    >
-      {product.title}
-    </li>
+  return (
+    <button onClick={handleClick}>
+      Click me
+    </button>
   );
-
-  return <ul>{listItems}</ul>;
 }
 
 export default function App() {
   return (
     <div>
-      <h1>リストのレンダー</h1>
-      <ShoppingList />
+      <h1>イベントに応答する</h1>
+      <MyButton />
     </div>
   );
 }
