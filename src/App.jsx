@@ -1,13 +1,16 @@
+import { useState } from 'react';
 import './App.css';
 
 function MyButton() {
+  const [count, setCount] = useState(0);
+
   function handleClick() {
-    alert('You clicked me!');
+    setCount(count + 1);
   }
 
   return (
     <button onClick={handleClick}>
-      Click me
+      Clicked {count} times
     </button>
   );
 }
@@ -15,7 +18,8 @@ function MyButton() {
 export default function App() {
   return (
     <div>
-      <h1>イベントに応答する</h1>
+      <h1>画面の更新</h1>
+      <MyButton />
       <MyButton />
     </div>
   );
